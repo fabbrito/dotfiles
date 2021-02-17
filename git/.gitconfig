@@ -1,0 +1,5 @@
+[user]
+	name = Fabrício
+	email = fab.brito94@gmail.com
+[core]
+    excludesfile = ~/.gitignore-global
