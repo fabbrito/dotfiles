@@ -1,5 +1,6 @@
 [user]
 	name = Fabrício
 	email = fab.brito94@gmail.com
+	signingkey = 176B15291F4E3FE8
 [core]
     excludesfile = ~/.gitignore-global

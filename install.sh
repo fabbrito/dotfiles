@@ -2,6 +2,7 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" || exit
 
 # Get the latest version of stowsh
+[ -d ./bin ] || mkdir ./bin
 [ ! -f ./bin/stowsh ] && curl -o ./bin/stowsh https://raw.githubusercontent.com/mikepqr/stowsh/master/stowsh
 chmod +x ./bin/stowsh
 
