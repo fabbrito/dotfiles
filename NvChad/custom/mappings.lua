@@ -31,10 +31,21 @@ M.telescope = {
   },
 }
 
+M.nvimtree = {
+  n = {
+    -- toggle and refresh
+    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR> <bar> <cmd> NvimTreeRefresh <CR>", "toggle nvimtree" },
+  },
+}
+
 M.fugitive = {
   n = {
     ["<leader>gs"] = { vim.cmd.Git, "Fugitive: Git Status" },
   },
+}
+
+M.surround = {
+  plugin = true,
 }
 
 -- more keybinds!
