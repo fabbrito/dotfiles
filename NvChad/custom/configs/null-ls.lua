@@ -19,7 +19,7 @@ local sources = {
   b.formatting.clang_format,
 
   -- bash
-  b.formatting.beautysh,
+  b.formatting.shfmt,
 
   -- python
   -- b.formatting.autopep8,

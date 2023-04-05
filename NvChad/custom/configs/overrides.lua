@@ -38,6 +38,7 @@ M.mason = {
   ensure_installed = {
     -- bash stuff
     "bash-language-server",
+    "shfmt",
 
     -- rust stuff
     "rust-analyzer",
