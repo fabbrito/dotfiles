@@ -3,21 +3,27 @@
 NVIMPATH="$HOME/.config/nvim"
 
 if [[ ! -d ${NVIMPATH} ]]; then
-	echo "~/.config/nvim/ not found"
+	echo "$HOME/.config/nvim/ not found"
 	exit 0
 fi
 
 SCRIPTPATH="$(realpath "${BASH_SOURCE[0]}")"
-DIRPATH="$(dirname ${SCRIPTPATH})"
+DIRPATH="$(dirname "$SCRIPTPATH")"
+FOLDER="custom"
+LOCAL="${DIRPATH}/${FOLDER}/"
+REMOTE="${NVIMPATH}/lua/${FOLDER}/"
+
+[ -d "${LOCAL}" ] || mkdir "${LOCAL}"
+[ -d "${REMOTE}" ] || mkdir "${REMOTE}"
 
 case "$1" in
 "update" | "u")
-	read -p 'from: .dotfiles -> to: .config'
-	rsync -aq ${DIRPATH}/custom/ ${NVIMPATH}/lua/custom
+	read -rp "from: ${LOCAL} -> to: ${REMOTE}"
+	rsync -aq "${LOCAL}" "${REMOTE}"
 	;;
 "retrieve" | "r")
-	read -p 'from: .config   -> to: .dotfiles'
-	rsync -aq ${NVIMPATH}/lua/custom/ ${DIRPATH}/custom
+	read -rp "from: ${REMOTE} -> to: ${LOCAL}"
+	rsync -aq "${REMOTE}" "${LOCAL}"
 	;;
 *)
 	echo "script.sh [update|u]   - copy and update files from: .dotfiles -> to: .config"

@@ -9,3 +9,6 @@
 ```bash
 ./script.sh r
 ```
+
+## To check latter
+[rust-tools.nvim - A plugin to improve your rust experience in neovim](https://github.com/simrat39/rust-tools.nvim)
