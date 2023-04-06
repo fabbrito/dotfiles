@@ -42,9 +42,12 @@ M.mason = {
 
     -- rust stuff
     "rust-analyzer",
+    "codelldb",
+    -- "rustfmt",
 
     -- python stuff
     "pyright",
+    -- "pylint",
 
     -- lua stuff
     "lua-language-server",
@@ -73,6 +76,13 @@ M.nvimtree = {
         git = true,
       },
     },
+  },
+}
+
+-- change sign for delete in gitsigns
+M.gitsigns = {
+  signs = {
+    delete = { hl = "DiffDelete", text = "-", numhl = "GitSignsDeleteNr" },
   },
 }
 

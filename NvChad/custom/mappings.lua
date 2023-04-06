@@ -39,6 +39,7 @@ M.nvimtree = {
 }
 
 M.fugitive = {
+  plugin = true,
   n = {
     ["<leader>gs"] = { vim.cmd.Git, "Fugitive: Git Status" },
   },

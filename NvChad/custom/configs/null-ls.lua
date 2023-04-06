@@ -24,7 +24,7 @@ local sources = {
   -- python
   -- b.formatting.autopep8,
   -- b.formatting.reorder_python_imports,
-  b.diagnostics.pylint,
+  -- b.diagnostics.pylint,
 
   -- rust
   b.formatting.rustfmt,

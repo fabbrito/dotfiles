@@ -13,9 +13,16 @@ local servers = {
   clangd = {},
   rust_analyzer = {
     ["rust-analyzer"] = {
-      diagnostics = {
-        enable = false,
+      diagnostics = { enable = true },
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
       },
+      cargo = { buildScripts = { enable = true } },
+      procMacro = { enable = true },
+      checkOnSave = { command = "clippy" },
     },
   },
   tailwindcss = {},
@@ -30,4 +37,3 @@ for lsp, lsp_settings in pairs(servers) do
     settings = lsp_settings,
   }
 end
-
