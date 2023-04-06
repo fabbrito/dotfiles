@@ -1,6 +1,11 @@
 # Kaeiel Custom NvChad Configs
 
-### Install
+### Copy (rsync) from `NvChad/` to `.config/nvim/`
 ```bash
-ln -s 
+./script.sh u
+```
+
+### Copy (rsync) from `.config/nvim/` to `NvChad/`
+```bash
+./script.sh r
 ```
