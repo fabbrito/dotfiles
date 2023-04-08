@@ -15,4 +15,5 @@
 ## To check latter
 
 [AstroNvim User Configuration Example](https://github.com/AstroNvim/user_example)
+
 [rust-tools.nvim - A plugin to improve your rust experience in neovim](https://github.com/simrat39/rust-tools.nvim)
