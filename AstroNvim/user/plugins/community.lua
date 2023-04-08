@@ -12,7 +12,7 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.prisma" },
   { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  -- { import = "astrocommunity.diagnostics.trouble-nvim" },
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline" },
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
