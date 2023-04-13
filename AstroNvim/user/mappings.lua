@@ -23,8 +23,8 @@ return {
     ["<leader>sg"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Word globally" },
     ["<leader>sl"] = { [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], desc = "Word in line" },
     -- Better scroll
-    ["<C-d>"] = { "<C-d>zz", desc = "scroll down and center this line" },
-    ["<C-u>"] = { "<C-u>zz", desc = "scroll up and center this line" },
+    -- ["<C-d>"] = { "<C-d>zz", desc = "scroll down and center this line" },
+    -- ["<C-u>"] = { "<C-u>zz", desc = "scroll up and center this line" },
     -- Group: Find (telescope)
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", desc = "fuzzy find inside buffer" },
     -- Group: Yank

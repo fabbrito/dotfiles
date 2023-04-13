@@ -3,6 +3,7 @@ return {
   name = "catppuccin",
   opts = {
     flavour = "mocha", -- latte, frappe, macchiato, mocha
+    -- no_italic = true,
     integrations = {
       nvimtree = false,
       ts_rainbow = false,

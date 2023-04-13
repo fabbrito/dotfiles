@@ -1,5 +1,5 @@
+local map = vim.keymap.set
 return function()
-  local map = vim.keymap.set
   -- navigate within insert mode
   map("i", "<C-h>", "<Left>", { desc = "move left" })
   map("i", "<C-j>", "<Down>", { desc = "move down" })

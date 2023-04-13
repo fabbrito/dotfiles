@@ -1,5 +1,5 @@
 -- Inspired by NvChad (https://astronvim.com/Recipes/status#replicate-nvchad-statusline)
-return {
+--[[ local M = {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
     local status = require "astronvim.utils.status"
@@ -26,8 +26,11 @@ return {
       -- add a section for the currently opened file information
       status.component.file_info {
         -- enable the file_icon and disable the highlighting based on filetype
-        file_icon = { padding = { left = 0 } },
-        filename = { fallback = "Empty" },
+        -- file_icon = { padding = { left = 0 } },
+        -- filename = { fallback = "Empty" },
+        filename = false,
+        file_modified = false,
+        filetype = {},
         -- add padding
         padding = { right = 1 },
         -- define the section separator
@@ -118,4 +121,35 @@ return {
     -- return the final options table
     return opts
   end,
+} ]]
+local M = {
+  "rebelot/heirline.nvim",
+  opts = function(_, opts)
+    local status = require "astronvim.utils.status"
+
+    -- statusline
+    opts.statusline = {
+      hl = { fg = "fg", bg = "bg" },
+      status.component.mode { mode_text = { padding = { left = 1, right = 1 } } }, -- add the mode text
+      status.component.git_branch(),
+      status.component.file_info { filetype = {}, filename = false, file_modified = false },
+      status.component.git_diff(),
+      status.component.diagnostics(),
+      status.component.fill(),
+      status.component.cmd_info(),
+      status.component.fill(),
+      status.component.lsp(),
+      status.component.treesitter(),
+      -- add a navigation component and just display the percentage of progress in the file
+      status.component.nav {
+        percentage = { padding = { right = 1 } },
+        ruler = false,
+        scrollbar = false,
+      },
+      -- remove the 2nd mode indicator on the right
+    }
+
+    return opts
+  end,
 }
+return M

@@ -4,7 +4,7 @@ return {
   lsp = {
     -- customize lsp formatting options
     formatting = {
-      timeout_ms = 2000, -- default format timeout
+      timeout_ms = 2000, -- format timeout
     },
   },
   icons = {
@@ -44,7 +44,7 @@ return {
     LSPLoading3 = "",
   },
   -- modify variables used by heirline but not defined in the setup call directly
-  heirline = {
+  --[[ heirline = {
     -- define the separators between each section
     separators = {
       left = { "", " " }, -- separator for the left side of the statusline
@@ -75,5 +75,5 @@ return {
         statusline = false,
       },
     },
-  },
+  }, ]]
 }
