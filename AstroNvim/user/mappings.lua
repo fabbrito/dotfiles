@@ -32,6 +32,7 @@ return {
     ["<leader>y"] = { [["+y]], desc = 'yank into "+' },
     ["<leader>Y"] = { [["+Y]], desc = 'Yank into "+' },
     -- ["<leader>d"] = { [["_d]], desc = 'delete selection into "_' },
+    ["<leader>pc"] = { function() require("crates").upgrade_all_crates() end, desc = "Upgrade all crates" },
   },
   v = {
     ["<leader>y"] = { [["+y]], desc = 'yank into "+' },

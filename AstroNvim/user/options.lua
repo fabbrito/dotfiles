@@ -2,5 +2,6 @@
 return {
   opt = {
     scrolloff = 4,
+    softtabstop = 2,
   },
 }

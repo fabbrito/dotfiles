@@ -1,5 +1,5 @@
 -- Inspired by NvChad (https://astronvim.com/Recipes/status#replicate-nvchad-statusline)
---[[ local M = {
+local M = {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
     local status = require "astronvim.utils.status"
@@ -32,15 +32,21 @@
         file_modified = false,
         filetype = {},
         -- add padding
-        padding = { right = 1 },
+        padding = { left = 1, right = 1 },
         -- define the section separator
         surround = { separator = "left", condition = false },
       },
-      -- add a component for the current git branch if it exists and use no separator for the sections
-      status.component.git_branch { surround = { separator = "none" } },
-      -- add a component for the current git diff if it exists and use no separator for the sections
-      status.component.git_diff { padding = { left = 1 }, surround = { separator = "none" } },
-      -- all of the children of this table will be treated together as a single component
+      {
+        -- add a component for the current git branch if it exists and use no separator for the sections
+        status.component.git_branch { --[[padding = { left = 1 },]]
+          surround = { separator = { " ", "" } },
+        },
+        -- add a component for the current git diff if it exists and use no separator for the sections
+        status.component.git_diff { --[[padding = { left = 1 },]]
+          surround = { separator = { " ", "" } },
+        },
+      },
+      --[[ -- all of the children of this table will be treated together as a single component
       {
         -- we want an empty space here so we can use the component builder to make a new section with just an empty string
         status.component.builder {
@@ -51,19 +57,23 @@
         },
         -- add a component for the info shown in the cmdline
         status.component.cmd_info { surround = { separator = "none", color = "bg" } },
-      },
+      }, ]]
       -- fill the rest of the statusline
       -- the elements after this will appear in the middle of the statusline
       status.component.fill(),
+      --[[ -- disabled when using noice.nvim
       -- add a component to display if the LSP is loading, disable showing running client names, and use no separator
       status.component.lsp { lsp_client_names = false, surround = { separator = "none", color = "bg" } },
+      ]]
+      -- add a component for the info shown in the cmdline
+      status.component.cmd_info { surround = { separator = "none", color = "bg" } },
       -- fill the rest of the statusline
       -- the elements after this will appear on the right of the statusline
       status.component.fill(),
       -- add a component for the current diagnostics if it exists and use the right separator for the section
-      status.component.diagnostics { surround = { separator = "right" } },
+      status.component.diagnostics { surround = { separator = "right" }, padding = { right = 1 } },
       -- add a component to display LSP clients, disable showing LSP progress, and use the right separator
-      status.component.lsp { lsp_progress = false, surround = { separator = "right" } },
+      status.component.lsp { lsp_progress = false, surround = { separator = "right" }, padding = { right = 1 } },
       -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
       -- all of the children of this table will be treated together as a single component
       {
@@ -77,12 +87,18 @@
           hl = { fg = "bg" },
           -- use the right separator and define the background color
           surround = { separator = "right", color = "folder_icon_bg" },
+          --[[ on_click = {
+            name = "heirline_folder",
+            callback = function()
+              vim.defer_fn(function() vim.cmd.Neotree "focus" end, 100)
+            end,
+          }, ]]
         },
         -- add a file information component and only show the current working directory name
         status.component.file_info {
           -- we only want filename to be used and we can change the fname
           -- function to get the current working directory name
-          filename = { fname = function(nr) return vim.fn.getcwd(nr) end, padding = { left = 1 } },
+          filename = { fname = function(nr) return vim.fn.getcwd(nr) end, padding = { left = 1, right = 1 } },
           -- disable all other elements of the file_info component
           file_icon = false,
           file_modified = false,
@@ -119,36 +135,6 @@
     }
 
     -- return the final options table
-    return opts
-  end,
-} ]]
-local M = {
-  "rebelot/heirline.nvim",
-  opts = function(_, opts)
-    local status = require "astronvim.utils.status"
-
-    -- statusline
-    opts.statusline = {
-      hl = { fg = "fg", bg = "bg" },
-      status.component.mode { mode_text = { padding = { left = 1, right = 1 } } }, -- add the mode text
-      status.component.git_branch(),
-      status.component.file_info { filetype = {}, filename = false, file_modified = false },
-      status.component.git_diff(),
-      status.component.diagnostics(),
-      status.component.fill(),
-      status.component.cmd_info(),
-      status.component.fill(),
-      status.component.lsp(),
-      status.component.treesitter(),
-      -- add a navigation component and just display the percentage of progress in the file
-      status.component.nav {
-        percentage = { padding = { right = 1 } },
-        ruler = false,
-        scrollbar = false,
-      },
-      -- remove the 2nd mode indicator on the right
-    }
-
     return opts
   end,
 }
