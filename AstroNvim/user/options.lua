@@ -4,4 +4,5 @@ return {
     scrolloff = 4,
     softtabstop = 2,
   },
+  -- g = { resession_enabled = false },
 }
