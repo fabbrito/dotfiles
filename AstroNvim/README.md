@@ -12,6 +12,10 @@
 ./script.sh r
 ```
 
+## TODO
+
+[ ] Fix the bash script to also remove deleted files when syncing the folders.
+
 ## To check latter
 
 [AstroNvim User Configuration Example](https://github.com/AstroNvim/user_example)
