@@ -20,5 +20,5 @@ return {
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   -- { import = "astrocommunity.bars-and-lines.heirline-mode-text-statusline" },
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
+  -- { import = "astrocommunity.colorscheme.catppuccin" },
 }
